@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi520bnay8anl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kgy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd0go"]
+bg_color = Color(0.309906, 0.707297, 7.70092e-07, 1)
+
+[node name="PowerGauge" type="ProgressBar"]
+offset_left = 1507.0
+offset_top = 553.0
+offset_right = 1511.0
+offset_bottom = 580.0
+scale = Vector2(5.76834, 7.87621)
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_37kgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rd0go")
+value = 25.0
+fill_mode = 3
+show_percentage = false
