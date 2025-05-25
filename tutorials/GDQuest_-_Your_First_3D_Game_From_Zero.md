@@ -1,9 +1,13 @@
 
 [GDQuest - Godot Tutorials - Your First 3D GAME From Zero](https://gdquest.com/tutorial/godot/3d/first-3d-game-godot-4/) [4:32:49]  
 
-[YouTube - GDQuest - Your First 3D GAME From Zero in Godot 4 \*\*Survivor Arena FPS\*\*](https://youtu.be/NJJNWGD25rg) [2:22:52]  
+---
+
+[YouTube - GDQuest - 2025\_05\_11 - Your First 3D GAME From Zero in Godot 4 \*\*Survivor Arena FPS\*\*](https://youtu.be/NJJNWGD25rg) [2:22:52]  
 - `0:52:12` $\[%\]
 - `1:42:39` $\[%\]
+
+---
 
 01. [Setting up](https://player.vimeo.com/video/1060451728?h=1323494251) [25:51]
 02. [Coding the camera rotation](https://player.vimeo.com/video/1060451747?h=98bfef9546) [13:28]
