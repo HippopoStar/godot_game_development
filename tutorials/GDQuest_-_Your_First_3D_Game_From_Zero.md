@@ -1,5 +1,9 @@
 
-[Your First 3D Game From Zero](https://www.gdquest.com/library/first_3d_game_godot4_arena_fps/) [4:32:49]  
+[GDQuest - Godot Tutorials - Your First 3D GAME From Zero](https://gdquest.com/tutorial/godot/3d/first-3d-game-godot-4/) [4:32:49]  
+
+[YouTube - GDQuest - Your First 3D GAME From Zero in Godot 4 \*\*Survivor Arena FPS\*\*](https://youtu.be/NJJNWGD25rg) [2:22:52]  
+- `0:52:12` $\[%\]
+- `1:42:39` $\[%\]
 
 01. [Setting up](https://player.vimeo.com/video/1060451728?h=1323494251) [25:51]
 02. [Coding the camera rotation](https://player.vimeo.com/video/1060451747?h=98bfef9546) [13:28]
@@ -33,14 +37,14 @@
 	- `09:30` **B**. Place and orient the bullets and their spawning point
 	- `16:05` **C**. Code the bullet forward motion
 	- `19:17` **D**. Delete bullets when they travel too far
-	- `21:35` **E**. Make bullets move independently from the gun
+	- `21:21` **E**. Make bullets move independently from the gun
 	- `23:35` **F**. Shoot a bullet when the player clicks
 	- `31:01` **G**. Shoot bullets automatically at fixed time intervals
 08. [Creating the mob](https://player.vimeo.com/video/1060451822?h=25a9576abd) [36:08]
 	- `00:47` **A**. Create the mob scene and prevent it from falling
 	- `05:30` **B**. Play the fly animation
 	- `10:32` **C**. Design the mob's take damage animation
-	- `20:58` **D**. Layer animations in an animation tree
+	- `20:58` **D**. Layer animations in an animation tree (`26:59` $\[%\])
 	- `27:04` **E**. Play the hurt animation when a bullet hits the mob
 09. [Getting the mob to follow the player](https://player.vimeo.com/video/1060451842?h=3e4df4c403) [8:34]
 	- `00:36` **A**. Track where the player is
@@ -57,7 +61,7 @@
 	- `26:17` **E**. Animate the helix turning
 12. [Scoring](https://player.vimeo.com/video/1060451897?h=11a0de95a4) [13:34]
 	- `00:33` **A**. Draw a label to display the current score
-	- `03:57` **B**. Track the mobs spawned in the game
+	- `03:57` **B**. Track the mobs spawned in the game (`06:20` $\[%\])
 	- `07:34` **C**. Increase the score when a mob dies
 13. [Adding sounds](https://player.vimeo.com/video/1060451917?h=343ed5b80d) [6:04]
 	- `00:40` **A**. Add shooting sound
