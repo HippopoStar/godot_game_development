@@ -3,7 +3,7 @@ extends CharacterBody3D
 var power_gauge: ProgressBar = null
 var camera: Camera3D = null
 
-func _ready():
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.camera = self.get_node("Camera3D")
 
@@ -64,7 +64,7 @@ func shoot_ball(power: float) -> void:
 	self.get_parent().add_child(tennis_ball)
 	tennis_ball.global_position = self.camera.get_node("Marker3D").global_position
 	#var one_meter_forward: Vector3 = Vector3.FORWARD.rotated(Vector3.RIGHT, self.get_node("Camera3D").rotation.x).rotated(Vector3.UP, self.rotation.y)
-	var one_meter_forward: Vector3 = -self.camera.global_basis.z
+	var one_meter_forward: Vector3 = -self.camera.global_transform.basis.z
 	#print("one_meter_forward: " + str(one_meter_forward))
 	tennis_ball.apply_central_impulse(one_meter_forward * power)
 

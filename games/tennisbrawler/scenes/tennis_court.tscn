@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1erat3ogm1s6"]
+[gd_scene load_steps=21 format=3 uid="uid://d1erat3ogm1s6"]
 
 [ext_resource type="Script" uid="uid://lr0is7s4u1ss" path="res://scripts/tennis_court.gd" id="1_rgy1g"]
 [ext_resource type="Texture2D" uid="uid://b561adg127emm" path="res://assets/pictures/court_lines.svg" id="2_n0o7n"]
 [ext_resource type="Material" uid="uid://kr4ank3ydlga" path="res://materials/tennis_court.tres" id="3_mcdcm"]
 [ext_resource type="PackedScene" uid="uid://b3mm200n0b1j4" path="res://scenes/player.tscn" id="4_7s1ft"]
+[ext_resource type="PackedScene" uid="uid://c83c131bremrp" path="res://scenes/throwing_machine.tscn" id="4_n0o7n"]
 
 [sub_resource type="Environment" id="Environment_qsmbx"]
 background_mode = 1
@@ -60,6 +61,9 @@ absorbent = true
 
 [node name="TennisCourt" type="Node3D"]
 script = ExtResource("1_rgy1g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 12, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qsmbx")
@@ -147,17 +151,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.057, 0, -2.74)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TennisArea/TennisCourt/DoubleCourtHalf_B/SimpleCourtHalf/RightServiceSquare"]
 shape = SubResource("BoxShape3D_xph4k")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_7s1ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.6)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.330696, 0.943738, 0, -0.943738, 0.330696, 0, 12.8254, 0)
-
 [node name="KillPlane" type="Area3D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("WorldBoundaryShape3D_t7r5c")
+
+[node name="ThrowingMachine" parent="." instance=ExtResource("4_n0o7n")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, -13)
+
+[node name="Player" parent="." instance=ExtResource("4_7s1ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

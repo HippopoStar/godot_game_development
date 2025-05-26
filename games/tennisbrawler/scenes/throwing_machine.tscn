@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c83c131bremrp"]
+
+[ext_resource type="Script" uid="uid://cvrcktwvuonlo" path="res://scripts/throwing_machine.gd" id="1_h6o68"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jx2fi"]
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bwix"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[node name="ThrowingMachine" type="Node3D"]
+script = ExtResource("1_h6o68")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_jx2fi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1, -0.5)
+mesh = SubResource("BoxMesh_6bwix")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.6)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
