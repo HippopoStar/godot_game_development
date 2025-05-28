@@ -8,14 +8,18 @@ func _ready() -> void:
 	self.camera = self.get_node("Camera3D")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	elif event is InputEventMouseMotion:
-		self.rotation_degrees.y -= event.relative.x * 0.5
-		self.camera.rotation_degrees.x -= event.relative.y * 0.2
-		self.camera.rotation_degrees.x = clamp(
-			self.camera.rotation_degrees.x, -80.0, 80.0
-		)
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if event.is_action_pressed("ui_cancel"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		elif event is InputEventMouseMotion:
+			self.rotation_degrees.y -= event.relative.x * 0.5
+			self.camera.rotation_degrees.x -= event.relative.y * 0.2
+			self.camera.rotation_degrees.x = clamp(
+				self.camera.rotation_degrees.x, -80.0, 80.0
+			)
+	elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		if event.is_action_pressed("shoot"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func deplacement(delta: float) -> void:
 	const SPEED: float = 5.5
@@ -46,12 +50,12 @@ func dose_power(delta: float) -> void:
 		self.power_gauge = POWER_GAUGE.instantiate()
 		self.add_child(power_gauge)
 		self.power_gauge.value = 0
-	elif Input.is_action_just_released("shoot"):
+	elif Input.is_action_just_released("shoot") and is_instance_valid(self.power_gauge):
 		var power: float = self.power_gauge.value
 		self.power_gauge.queue_free()
 		self.power_gauge = null
 		self.shoot_ball(power)
-	elif Input.is_action_pressed("shoot"):
+	elif Input.is_action_pressed("shoot") and is_instance_valid(self.power_gauge):
 		var value: float = self.power_gauge.value + (50.0 * delta)
 		self.power_gauge.value = clamp(
 			value, 0.0, 100.0
