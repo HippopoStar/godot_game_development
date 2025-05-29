@@ -12,8 +12,8 @@ var index: int = 0
 # Engine.get_max_fps() -> int
 # Engine.get_frames_per_second() -> float
 
-# Trail duration = FPS / GRANULARITY
-const GRANULARITY: int = 30
+# Trail duration = GRANULARITY / FPS
+const GRANULARITY: int = 60
 
 func update_segment(delta: float, segment: Node3D) -> void:
 	var deplacement: Vector3 = self.global_position - self.previous_global_position
@@ -21,7 +21,7 @@ func update_segment(delta: float, segment: Node3D) -> void:
 		segment.set_visible(false)
 	else:
 		segment.set_visible(true)
-		var cylinder_mesh_height: float = (deplacement.length() / delta) / self.GRANULARITY
+		var cylinder_mesh_height: float = deplacement.length()
 		# MeshInstance3D.get_mesh() -> Mesh
 		# CylinderMesh.set_height(value: float) -> void
 		segment.get_node("MeshInstance3D").get_mesh().set_height(cylinder_mesh_height)
