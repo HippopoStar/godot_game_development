@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://di3d6vabjapx2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ufvl"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.941176, 0.894118, 0.439216, 0.247059)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bm1ol"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_3ufvl")
+top_radius = 0.065
+bottom_radius = 0.065
+height = 1.0
+radial_segments = 8
+cap_top = false
+cap_bottom = false
+
+[node name="TrailSegment" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.5)
+mesh = SubResource("CylinderMesh_bm1ol")

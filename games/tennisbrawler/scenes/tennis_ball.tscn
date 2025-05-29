@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cu2vycuu86ueo"]
+[gd_scene load_steps=6 format=3 uid="uid://cu2vycuu86ueo"]
 
 [ext_resource type="Script" uid="uid://blralpnuyp4lh" path="res://scripts/trail.gd" id="1_yv6bk"]
 
@@ -16,45 +16,6 @@ material = SubResource("StandardMaterial3D_wrl5w")
 radius = 0.065
 height = 0.13
 
-[sub_resource type="Curve" id="Curve_yv6bk"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_056kc"]
-resource_local_to_scene = true
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_12jav"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ipyi2"]
-resource_local_to_scene = true
-curve_x = SubResource("Curve_yv6bk")
-curve_y = SubResource("Curve_056kc")
-curve_z = SubResource("Curve_12jav")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yv6bk"]
-resource_local_to_scene = true
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveXYZTexture_ipyi2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv6bk"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.941176, 0.894118, 0.439216, 0.247059)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_056kc"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_yv6bk")
-top_radius = 0.065
-bottom_radius = 0.065
-height = 1.0
-radial_segments = 8
-cap_top = false
-cap_bottom = false
-
 [node name="TennisBall" type="RigidBody3D"]
 top_level = true
 mass = 0.057
@@ -69,9 +30,3 @@ mesh = SubResource("SphereMesh_f6hqo")
 
 [node name="Trail" type="Node3D" parent="."]
 script = ExtResource("1_yv6bk")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Trail"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.5)
-amount = 30
-process_material = SubResource("ParticleProcessMaterial_yv6bk")
-draw_pass_1 = SubResource("CylinderMesh_056kc")
