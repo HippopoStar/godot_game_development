@@ -3,7 +3,7 @@ extends Node3D
 func throw_ball() -> void:
 	const POWER = 15
 	const DEGREES = 25
-	var TENNIS_BALL: PackedScene = preload("res://scenes/tennis_ball.tscn")
+	const TENNIS_BALL: PackedScene = preload("res://scenes/tennis_ball.tscn")
 
 	var tennis_ball: RigidBody3D = TENNIS_BALL.instantiate()
 	self.get_parent().add_child(tennis_ball)
