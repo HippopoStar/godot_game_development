@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://btqf6yaepqgtd"]
+
+[ext_resource type="Script" uid="uid://bter88jesv1xe" path="res://scripts/player_ui.gd" id="1_jkj6h"]
+[ext_resource type="Theme" uid="uid://mr7xwi543ar1" path="res://materials/player_ui_theme.tres" id="2_48xfa"]
+[ext_resource type="Texture2D" uid="uid://ccsue4x71wjhf" path="res://assets/pictures/reticle.png" id="2_sk4pr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guxnq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkj6h"]
+bg_color = Color(0.309906, 0.707297, 7.70092e-07, 1)
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_jkj6h")
+
+[node name="PowerGaugeContainer" type="PanelContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme = ExtResource("2_48xfa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PowerGaugeContainer"]
+layout_mode = 2
+
+[node name="LeftSpacer" type="Control" parent="PowerGaugeContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="PanelContainer" type="PanelContainer" parent="PowerGaugeContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="PowerGaugeContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(40, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_guxnq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jkj6h")
+value = 25.0
+fill_mode = 3
+show_percentage = false
+
+[node name="RightSpacer" type="Control" parent="PowerGaugeContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrosshairContainer" type="PanelContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme = ExtResource("2_48xfa")
+
+[node name="TextureRect" type="TextureRect" parent="CrosshairContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_sk4pr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AngleSliderContainer" type="PanelContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme = ExtResource("2_48xfa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AngleSliderContainer"]
+layout_mode = 2
+
+[node name="TopSpacer" type="Control" parent="AngleSliderContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AngleSliderContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HScrollBar" type="HScrollBar" parent="AngleSliderContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(1000, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = -50.0
+max_value = 50.0
+
+[node name="BottomSpacer" type="Control" parent="AngleSliderContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

@@ -2,7 +2,7 @@ extends Node3D
 
 # CircularBuffer
 # https://docs.godotengine.org/en/stable/classes/class_array.html
-var segments_array: Array = Array()
+var segments_array: Array[Node3D] = Array([], TYPE_OBJECT, "Node3D", null)
 var index: int = 0
 
 var previous_global_position: Vector3 = Vector3(0.0, 0.0, 0.0)
@@ -19,7 +19,7 @@ var color: Color = Color(1.0, 1.0, 1.0, 1.0)
 var alpha_step: float = 0.0
 
 func update_alpha() -> void:
-	for segment in self.segments_array:
+	for segment: Node3D in self.segments_array:
 		var segment_color = segment.get_node("MeshInstance3D").get_mesh().get_material().get_albedo()
 		segment.get_node("MeshInstance3D").get_mesh().get_material().set_albedo(segment_color - Color(0, 0, 0, self.alpha_step))
 
