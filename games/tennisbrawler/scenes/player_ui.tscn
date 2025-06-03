@@ -20,21 +20,25 @@ theme = ExtResource("2_48xfa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PowerGaugeContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="LeftSpacer" type="Control" parent="PowerGaugeContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PowerGaugeContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="PowerGaugeContainer/HBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(40, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_guxnq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jkj6h")
 value = 25.0
@@ -44,6 +48,7 @@ show_percentage = false
 [node name="RightSpacer" type="Control" parent="PowerGaugeContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="CrosshairContainer" type="PanelContainer" parent="."]
 offset_right = 1920.0
@@ -56,6 +61,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 texture = ExtResource("2_sk4pr")
 expand_mode = 1
 stretch_mode = 4
@@ -68,6 +74,7 @@ theme = ExtResource("2_48xfa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AngleSliderContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TopSpacer" type="Control" parent="AngleSliderContainer/VBoxContainer"]
 layout_mode = 2
@@ -78,15 +85,18 @@ mouse_filter = 2
 [node name="PanelContainer" type="PanelContainer" parent="AngleSliderContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="HScrollBar" type="HScrollBar" parent="AngleSliderContainer/VBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(1000, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 min_value = -50.0
 max_value = 50.0
 
 [node name="BottomSpacer" type="Control" parent="AngleSliderContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2

@@ -2,7 +2,7 @@ extends Node3D
 
 # CircularBuffer
 # https://docs.godotengine.org/en/stable/classes/class_array.html
-var segments_array: Array[Node3D] = Array([], TYPE_OBJECT, "Node3D", null)
+var segments_array: Array[Node3D] = []
 var index: int = 0
 
 var previous_global_position: Vector3 = Vector3(0.0, 0.0, 0.0)

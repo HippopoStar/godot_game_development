@@ -47,11 +47,11 @@ func deplacement(delta: float) -> void:
 
 func dose_power(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
-		self.user_interface.get_power_gauge().set_visible(true)
+		self.user_interface.get_power_gauge().show()
 		self.user_interface.get_power_gauge().set_value_no_signal(0.0)
 	elif Input.is_action_just_released("shoot") and self.user_interface.get_power_gauge().is_visible():
 		var power: float = self.user_interface.get_power_gauge().get_value()
-		self.user_interface.get_power_gauge().set_visible(false)
+		self.user_interface.get_power_gauge().hide()
 		self.shoot_ball(power)
 	elif Input.is_action_pressed("shoot") and self.user_interface.get_power_gauge().is_visible():
 		var value: float = self.user_interface.get_power_gauge().get_value() + (50.0 * delta)
@@ -73,11 +73,11 @@ func shoot_ball(power: float) -> void:
 
 func adjust_aim(delta: float) -> void:
 	if Input.is_action_just_pressed("stand_still"):
-		self.user_interface.get_angle_slider().set_visible(true)
+		self.user_interface.get_angle_slider().show()
 		self.user_interface.get_angle_slider().set_value_no_signal(self.angle)
 	elif Input.is_action_just_released("stand_still"):
 		self.angle = 0.0
-		self.user_interface.get_angle_slider().set_visible(false)
+		self.user_interface.get_angle_slider().hide()
 	elif Input.is_action_pressed("stand_still"):
 		var input_direction_2D: Vector2 = Input.get_vector(
 			"move_left", "move_right", "move_forward", "move_back"
