@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3mm200n0b1j4"]
+[gd_scene load_steps=11 format=3 uid="uid://b3mm200n0b1j4"]
 
 [ext_resource type="PackedScene" uid="uid://bk0iqonl8bs7u" path="res://assets/models/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://v3lj1fobu6e3" path="res://scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Resource" uid="uid://b1427sybtxa8p" path="res://resources/G.U.I.D.E/Action/serve_mode/move.tres" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://btqf6yaepqgtd" path="res://scenes/player_ui.tscn" id="3_qhqgy"]
+[ext_resource type="Resource" uid="uid://cn3uh8agb6bai" path="res://resources/G.U.I.D.E/Action/serve_mode/rotate_player.tres" id="3_qlg0r"]
+[ext_resource type="Resource" uid="uid://toiiu321ao2r" path="res://resources/G.U.I.D.E/Action/serve_mode/rotate_camera.tres" id="4_tuyoq"]
+[ext_resource type="Resource" uid="uid://mxl4ixv0qs8i" path="res://resources/G.U.I.D.E/Action/serve_mode/hit_gesture.tres" id="5_smehm"]
+[ext_resource type="Resource" uid="uid://cbbshr0tn771n" path="res://resources/G.U.I.D.E/Action/serve_mode/hit_stance.tres" id="6_ur7pv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -10,6 +15,11 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rkbax")
+rotate_player = ExtResource("3_qlg0r")
+rotate_camera = ExtResource("4_tuyoq")
+move = ExtResource("2_dqkch")
+hit_gesture = ExtResource("5_smehm")
+hit_stance = ExtResource("6_ur7pv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

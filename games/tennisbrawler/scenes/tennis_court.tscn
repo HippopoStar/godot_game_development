@@ -1,10 +1,25 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1erat3ogm1s6"]
+[gd_scene load_steps=36 format=3 uid="uid://d1erat3ogm1s6"]
 
 [ext_resource type="Script" uid="uid://lr0is7s4u1ss" path="res://scripts/tennis_court.gd" id="1_rgy1g"]
+[ext_resource type="Resource" uid="uid://dj6tkxjry051h" path="res://resources/G.U.I.D.E/MappingContext/kbm/serve_mode.tres" id="2_7s1ft"]
 [ext_resource type="Texture2D" uid="uid://b561adg127emm" path="res://assets/pictures/court_lines.svg" id="2_n0o7n"]
 [ext_resource type="Material" uid="uid://kr4ank3ydlga" path="res://materials/tennis_court.tres" id="3_mcdcm"]
+[ext_resource type="Resource" uid="uid://bjssp8oc8y4ix" path="res://resources/G.U.I.D.E/MappingContext/kbm/rally_mode.tres" id="3_sg4ll"]
 [ext_resource type="PackedScene" uid="uid://b3mm200n0b1j4" path="res://scenes/player.tscn" id="4_7s1ft"]
+[ext_resource type="Resource" uid="uid://biqgqijcue7wx" path="res://resources/G.U.I.D.E/Action/global/toggle_settings_dialog.tres" id="4_bedd4"]
+[ext_resource type="Resource" uid="uid://c7l3rv4sb7ie6" path="res://resources/G.U.I.D.E/Action/rally_mode/switch_to_serve_mode.tres" id="4_ixi16"]
 [ext_resource type="PackedScene" uid="uid://c83c131bremrp" path="res://scenes/throwing_machine.tscn" id="4_n0o7n"]
+[ext_resource type="Resource" uid="uid://cv3x8dx0uwf6o" path="res://resources/G.U.I.D.E/MappingContext/kbm/global.tres" id="5_ftqif"]
+[ext_resource type="Resource" uid="uid://cchqmlh5n5t2k" path="res://resources/G.U.I.D.E/Action/serve_mode/switch_to_rally_mode.tres" id="5_rfuaw"]
+[ext_resource type="Script" uid="uid://45w4t5o1x1lw" path="res://resources/G.U.I.D.E/input_manager.gd" id="6_rfuaw"]
+[ext_resource type="Resource" uid="uid://c61ajobibnuqr" path="res://resources/G.U.I.D.E/MappingContext/controller/global.tres" id="8_rl2vm"]
+[ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="8_sg4ll"]
+[ext_resource type="Resource" uid="uid://cnfc80icmwsbx" path="res://resources/G.U.I.D.E/MappingContext/controller/serve_mode.tres" id="9_wep0t"]
+[ext_resource type="Resource" uid="uid://l6gam18tdiov" path="res://resources/G.U.I.D.E/MappingContext/controller/rally_mode.tres" id="10_bedd4"]
+[ext_resource type="Resource" uid="uid://dfspnvo7tx5xa" path="res://resources/G.U.I.D.E/Action/global/switch_to_controller.tres" id="11_nh50u"]
+[ext_resource type="Resource" uid="uid://c1ythnyj634r1" path="res://resources/G.U.I.D.E/Action/global/switch_to_kbm.tres" id="12_8hdnu"]
+[ext_resource type="PackedScene" uid="uid://rp8fr81pnvb5" path="res://resources/G.U.I.D.E/prompts/input_prompts.tscn" id="19_bedd4"]
+[ext_resource type="PackedScene" uid="uid://bv488w8vwn0bu" path="res://resources/G.U.I.D.E/ui/settings_dialog.tscn" id="21_nh50u"]
 
 [sub_resource type="Environment" id="Environment_qsmbx"]
 background_mode = 1
@@ -61,6 +76,23 @@ absorbent = true
 
 [node name="TennisCourt" type="Node3D"]
 script = ExtResource("1_rgy1g")
+switch_to_serve_mode = ExtResource("4_ixi16")
+switch_to_rally_mode = ExtResource("5_rfuaw")
+toggle_settings_dialog = ExtResource("4_bedd4")
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("6_rfuaw")
+global_kbm = ExtResource("5_ftqif")
+serve_mode_kbm = ExtResource("2_7s1ft")
+rally_mode_kbm = ExtResource("3_sg4ll")
+global_controller = ExtResource("8_rl2vm")
+serve_mode_controller = ExtResource("9_wep0t")
+rally_mode_controller = ExtResource("10_bedd4")
+switch_to_controller = ExtResource("11_nh50u")
+switch_to_kbm = ExtResource("12_8hdnu")
+switch_to_serve_mode = ExtResource("4_ixi16")
+switch_to_rally_mode = ExtResource("5_rfuaw")
+toggle_settings_dialog = ExtResource("4_bedd4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 12, 0)
@@ -163,5 +195,19 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 
 
 [node name="Player" parent="." instance=ExtResource("4_7s1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="GUIDEDebug" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GuideDebugger" parent="GUIDEDebug" instance=ExtResource("8_sg4ll")]
+
+[node name="GUIDEHUD" type="CanvasLayer" parent="."]
+
+[node name="InputPrompts" parent="GUIDEHUD" instance=ExtResource("19_bedd4")]
+
+[node name="SettingsUI" type="CanvasLayer" parent="."]
+
+[node name="SettingsDialog" parent="SettingsUI" instance=ExtResource("21_nh50u")]
+visible = false
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

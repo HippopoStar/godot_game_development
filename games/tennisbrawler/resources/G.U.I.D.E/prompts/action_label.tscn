@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://5th32qw31wfs"]
+
+[node name="ActionLabel" type="Label"]
+theme_override_font_sizes/font_size = 16
+vertical_alignment = 1

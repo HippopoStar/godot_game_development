@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyccm1k58qwjo"]
+
+[ext_resource type="Script" uid="uid://c68nuxlgjpqgs" path="res://resources/G.U.I.D.E/prompts/mapping_context_grid.gd" id="1_8h654"]
+
+[node name="MappingContextGrid" type="GridContainer"]
+mouse_filter = 2
+columns = 2
+script = ExtResource("1_8h654")

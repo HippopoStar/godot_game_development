@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnsrafshiv8ic"]
+
+[ext_resource type="Script" uid="uid://ddpnv3uy5s5a7" path="res://resources/G.U.I.D.E/ui/input_section.gd" id="1_w147n"]
+
+[node name="InputSection" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w147n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1

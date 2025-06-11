@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://rp8fr81pnvb5"]
+
+[ext_resource type="Script" uid="uid://xg6hv8gr7q5n" path="res://resources/G.U.I.D.E/prompts/input_prompts.gd" id="1_14phl"]
+[ext_resource type="Resource" uid="uid://cv3x8dx0uwf6o" path="res://resources/G.U.I.D.E/MappingContext/kbm/global.tres" id="2_cr1um"]
+[ext_resource type="Resource" uid="uid://c61ajobibnuqr" path="res://resources/G.U.I.D.E/MappingContext/controller/global.tres" id="3_4bxcr"]
+[ext_resource type="Resource" uid="uid://dj6tkxjry051h" path="res://resources/G.U.I.D.E/MappingContext/kbm/serve_mode.tres" id="3_ejjud"]
+[ext_resource type="Resource" uid="uid://bjssp8oc8y4ix" path="res://resources/G.U.I.D.E/MappingContext/kbm/rally_mode.tres" id="4_cr1um"]
+[ext_resource type="Resource" uid="uid://cnfc80icmwsbx" path="res://resources/G.U.I.D.E/MappingContext/controller/serve_mode.tres" id="4_mnro4"]
+[ext_resource type="Resource" uid="uid://l6gam18tdiov" path="res://resources/G.U.I.D.E/MappingContext/controller/rally_mode.tres" id="6_4bxcr"]
+
+[node name="InputPrompts" type="VBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_bottom = 45.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("1_14phl")
+global_kbm = ExtResource("2_cr1um")
+global_controller = ExtResource("3_4bxcr")
+serve_kbm = ExtResource("3_ejjud")
+serve_controller = ExtResource("4_mnro4")
+rally_kbm = ExtResource("4_cr1um")
+rally_controller = ExtResource("6_4bxcr")

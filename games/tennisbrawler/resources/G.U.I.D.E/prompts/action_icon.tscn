@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhxdqruwjyx66"]
+
+[ext_resource type="Script" uid="uid://ddwwx11h6le2v" path="res://resources/G.U.I.D.E/prompts/action_icon.gd" id="1_drjrc"]
+
+[node name="ActionIcon" type="RichTextLabel"]
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("1_drjrc")

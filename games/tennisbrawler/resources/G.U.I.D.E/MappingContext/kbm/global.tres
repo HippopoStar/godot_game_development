@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=20 format=3 uid="uid://cv3x8dx0uwf6o"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_dnnhl"]
+[ext_resource type="Resource" uid="uid://dfspnvo7tx5xa" path="res://resources/G.U.I.D.E/Action/global/switch_to_controller.tres" id="2_i1vd2"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_rufcx"]
+[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="4_8plb5"]
+[ext_resource type="Script" uid="uid://w3fbpe7r01n8" path="res://addons/guide/inputs/guide_input_any.gd" id="4_tj0i3"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="5_1a6lq"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_ysg8n"]
+[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_b4edn"]
+[ext_resource type="Script" uid="uid://biiggjw6tv4uq" path="res://addons/guide/triggers/guide_trigger_released.gd" id="7_vmcao"]
+[ext_resource type="Resource" uid="uid://biqgqijcue7wx" path="res://resources/G.U.I.D.E/Action/global/toggle_settings_dialog.tres" id="8_gx3kw"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="8_w8tp5"]
+
+[sub_resource type="Resource" id="Resource_gx3kw"]
+script = ExtResource("4_tj0i3")
+mouse_buttons = false
+mouse_movement = false
+minimum_mouse_movement_distance = 1.0
+joy_buttons = true
+joy_axes = true
+minimum_joy_axis_actuation_strength = 0.2
+keyboard = false
+touch = false
+mouse = false
+joy = true
+
+[sub_resource type="Resource" id="Resource_5sr4h"]
+script = ExtResource("7_b4edn")
+actuation_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_6l42w"]
+script = ExtResource("3_rufcx")
+override_action_settings = false
+is_remappable = false
+display_name = ""
+display_category = ""
+input = SubResource("Resource_gx3kw")
+modifiers = Array[ExtResource("5_1a6lq")]([])
+triggers = Array[ExtResource("6_ysg8n")]([SubResource("Resource_5sr4h")])
+
+[sub_resource type="Resource" id="Resource_kqdns"]
+script = ExtResource("1_dnnhl")
+action = ExtResource("2_i1vd2")
+input_mappings = Array[ExtResource("3_rufcx")]([SubResource("Resource_6l42w")])
+
+[sub_resource type="Resource" id="Resource_edxy3"]
+script = ExtResource("4_8plb5")
+key = 4194305
+shift = false
+control = false
+alt = false
+meta = false
+allow_additional_modifiers = true
+
+[sub_resource type="Resource" id="Resource_w8pa7"]
+script = ExtResource("7_vmcao")
+actuation_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_71wbn"]
+script = ExtResource("3_rufcx")
+override_action_settings = false
+is_remappable = false
+display_name = ""
+display_category = ""
+input = SubResource("Resource_edxy3")
+modifiers = Array[ExtResource("5_1a6lq")]([])
+triggers = Array[ExtResource("6_ysg8n")]([SubResource("Resource_w8pa7")])
+
+[sub_resource type="Resource" id="Resource_uucfy"]
+script = ExtResource("1_dnnhl")
+action = ExtResource("8_gx3kw")
+input_mappings = Array[ExtResource("3_rufcx")]([SubResource("Resource_71wbn")])
+
+[resource]
+script = ExtResource("8_w8tp5")
+display_name = ""
+mappings = Array[ExtResource("1_dnnhl")]([SubResource("Resource_kqdns"), SubResource("Resource_uucfy")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"

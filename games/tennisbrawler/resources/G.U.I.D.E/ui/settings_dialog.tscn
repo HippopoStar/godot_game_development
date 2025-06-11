@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://bv488w8vwn0bu"]
+
+[ext_resource type="Script" uid="uid://cqijcxut1wjwi" path="res://resources/G.U.I.D.E/ui/settings_dialog.gd" id="1_yusae"]
+[ext_resource type="Resource" uid="uid://cv3x8dx0uwf6o" path="res://resources/G.U.I.D.E/MappingContext/kbm/global.tres" id="2_lks4c"]
+[ext_resource type="Resource" uid="uid://c61ajobibnuqr" path="res://resources/G.U.I.D.E/MappingContext/controller/global.tres" id="3_xybuc"]
+[ext_resource type="Resource" uid="uid://dj6tkxjry051h" path="res://resources/G.U.I.D.E/MappingContext/kbm/serve_mode.tres" id="4_wkbaf"]
+[ext_resource type="Resource" uid="uid://cnfc80icmwsbx" path="res://resources/G.U.I.D.E/MappingContext/controller/serve_mode.tres" id="5_5kxdw"]
+[ext_resource type="Resource" uid="uid://bjssp8oc8y4ix" path="res://resources/G.U.I.D.E/MappingContext/kbm/rally_mode.tres" id="6_4xltf"]
+[ext_resource type="Resource" uid="uid://l6gam18tdiov" path="res://resources/G.U.I.D.E/MappingContext/controller/rally_mode.tres" id="7_7pmx4"]
+[ext_resource type="Resource" uid="uid://biqgqijcue7wx" path="res://resources/G.U.I.D.E/Action/global/toggle_settings_dialog.tres" id="8_o4i4e"]
+[ext_resource type="Script" uid="uid://db27ccgomq455" path="res://addons/guide/remapping/guide_input_detector.gd" id="9_r5yka"]
+[ext_resource type="Script" uid="uid://ccvqqvfooyvn0" path="res://addons/guide/inputs/guide_input.gd" id="10_v83ck"]
+[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="11_3mylb"]
+[ext_resource type="Script" uid="uid://rvttn472ix6v" path="res://addons/guide/inputs/guide_input_joy_button.gd" id="12_nrv33"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y12dx"]
+bg_color = Color(0.359069, 0.359069, 0.359069, 1)
+
+[sub_resource type="Resource" id="Resource_cap05"]
+script = ExtResource("11_3mylb")
+key = 4194305
+shift = false
+control = false
+alt = false
+meta = false
+allow_additional_modifiers = true
+metadata/_custom_type_script = "uid://cw71o87tvdx3q"
+
+[sub_resource type="Resource" id="Resource_1cqfn"]
+script = ExtResource("12_nrv33")
+button = 6
+joy_index = -1
+metadata/_custom_type_script = "uid://rvttn472ix6v"
+
+[node name="SettingsDialog" type="PanelContainer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yusae")
+global_kbm = ExtResource("2_lks4c")
+global_controller = ExtResource("3_xybuc")
+serve_kbm = ExtResource("4_wkbaf")
+serve_controller = ExtResource("5_5kxdw")
+rally_kbm = ExtResource("6_4xltf")
+rally_controller = ExtResource("7_7pmx4")
+toggle_settings_dialog = ExtResource("8_o4i4e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+tab_alignment = 1
+current_tab = 0
+
+[node name="KBM" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Controller" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y12dx")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Actuate the control now"
+
+[node name="GUIDEInputDetector" type="Node" parent="."]
+script = ExtResource("9_r5yka")
+abort_detection_on = Array[ExtResource("10_v83ck")]([SubResource("Resource_cap05"), SubResource("Resource_1cqfn")])
+metadata/_custom_type_script = "uid://db27ccgomq455"

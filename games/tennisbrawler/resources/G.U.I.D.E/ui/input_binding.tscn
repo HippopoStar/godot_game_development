@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://t6rwqi8soox1"]
+
+[ext_resource type="Script" uid="uid://f83dsxf4s7mf" path="res://resources/G.U.I.D.E/ui/input_binding.gd" id="1_p05ko"]
+
+[node name="InputBinding" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p05ko")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+flat = true
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
